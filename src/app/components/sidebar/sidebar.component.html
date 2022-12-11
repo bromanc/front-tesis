@@ -1,0 +1,53 @@
+<div class="d-flex flex-column flex-shrink-0 sidebar" [ngClass]="{ 'expanded': true }">
+    <div class="header">
+        <h1 class="title">
+            MyApp
+        </h1>
+    </div>
+    <div class="flex-column mb-auto content">
+        <div class="link">
+            <div class="content" [routerLink]="['/home']" [routerLinkActive]="'active'">
+                <div class="icon">
+                    <img src="./assets/user_icon.svg" alt = "user-icon" height="22" width="22">
+                </div>
+                <div class="title">Estudiantes</div>
+            </div>
+        </div>
+        <div class="link">
+            <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
+                <div class="icon">
+                    <img src="./assets/degree_icon.svg" alt = "degree-icon" height="22" width="22">
+                </div>
+                <div class="title">Carreras</div>
+            </div>
+        </div>
+        <div class="link">
+            <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
+                <div class="icon">
+                    <img src="./assets/process.svg" alt = "process-icon" height="22" width="22">
+                </div>
+                <div class="title">Procesos</div>
+            </div>
+        </div>
+        <div class="link">
+            <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
+                <div class="icon">
+                    <img src="./assets/accountant_icon.svg" alt = "accountant-icon" height="22" width="22">
+                </div>
+                <div class="title">Responsables</div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="dropdown">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+    </div>
+
+</div>
