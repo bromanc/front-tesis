@@ -1,0 +1,10 @@
+.container {
+    margin: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+hr {
+    opacity: 30%;
+    margin-inline: 20px;
+}

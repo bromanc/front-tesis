@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Responsable</h2>
+<form [formGroup]="accountantForm" (ngSubmit)="save()">
+    <mat-dialog-content class="mat-typography">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" placeholder="Nombre">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="phone" placeholder="Teléfono">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="address" placeholder="Dirección">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="true">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+</form>

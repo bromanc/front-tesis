@@ -9,4 +9,8 @@ import {AuthService} from "@auth0/auth0-angular";
 export class AppComponent {
   constructor(public auth: AuthService) {}
   title = 'front-tesis';
+
+  logout() {
+    this.auth.logout();
+  }
 }

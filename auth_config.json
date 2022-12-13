@@ -4,6 +4,6 @@
   "audience": "https://processmanagementapi.com",
   "apiUri": "https://localhost:3000",
   "appUri": "https://example.site:4200/",
-  "redirectUri": "https://example.site:4200/process",
+  "redirectUri": "https://example.site:4200/accountant",
   "errorPath": "/error"
 }
