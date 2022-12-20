@@ -29,7 +29,6 @@ export class ApiService {
                 catchError(err => throwError(err))
             );
     }
-
     getAccountants$(): Observable<IAccountant[]> {
         return this.http
             .get<IAccountant[]>(`${config.apiUri}/accountant/`)
@@ -37,19 +36,25 @@ export class ApiService {
                 catchError(err => throwError(err))
             );
     }
-
     createAccountant$(body: any): Observable<IAccountant> {
         return this.http
             .post<IAccountant>(`${config.apiUri}/accountant/`, body)
             .pipe(
-                catchError(this.handleError)
+                catchError(err => throwError(err))
             );
     }
-
-
-    handleError(error: any) {
-        return throwError(() => {
-            return error;
-        });
+    updateAccountant$(id: string, body: any): Observable<IAccountant> {
+        return this.http
+            .patch<IAccountant>(`${config.apiUri}/accountant/${id}`, body)
+            .pipe(
+                catchError(err => throwError(err))
+            );
+    }
+    deleteAccountant$(id: string): Observable<any> {
+        return this.http
+            .delete(`${config.apiUri}/accountant/${id}`)
+            .pipe(
+                catchError(err => throwError(err))
+            )
     }
 }

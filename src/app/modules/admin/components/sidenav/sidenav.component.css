@@ -17,6 +17,9 @@ mat-toolbar mat-icon {
 .mat-list-item:hover {
     background: #E8EAEE;
 }
+.mat-list-item.active {
+    background: #d6d6d6;
+}
 .icon-display {
     padding-inline: 30px;
     transform: scale(1.5);

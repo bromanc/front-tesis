@@ -21,7 +21,6 @@
 .content {
     margin-inline: 40px;
 }
-
 table {
     padding-inline: 40px;
     width: 100%;
@@ -29,4 +28,7 @@ table {
 }
 mat-row {
     font-size:20px;
+}
+mat-progress-spinner {
+    margin: 45px;
 }

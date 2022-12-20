@@ -10,6 +10,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatTableModule} from "@angular/material/table";
 import {MatTab} from "@angular/material/tabs";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatTab} from "@angular/material/tabs";
         MatMenuModule,
         MatListModule,
         MatToolbarModule,
-        MatTableModule
+        MatTableModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         CommonModule,
@@ -36,7 +38,8 @@ import {MatTab} from "@angular/material/tabs";
         MatMenuModule,
         MatListModule,
         MatToolbarModule,
-        MatTableModule
+        MatTableModule,
+        MatProgressSpinnerModule
     ]
 })
 export class MaterialModule {
