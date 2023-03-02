@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+    <h1 class="app-title">MyApp</h1>
+    <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label="">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #appMenu="matMenu">
+        <button mat-menu-item (click)="logout()">Cerrar sesión</button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+            <a mat-list-item routerLinkActive="active" routerLink="./student">
+                <mat-icon class="icon-display">person</mat-icon>
+                Usuarios</a>
+            <a mat-list-item routerLinkActive="active" routerLink="./degree">
+                <mat-icon class="icon-display">school</mat-icon>
+                Carreras</a>
+            <a mat-list-item routerLinkActive="active" routerLink="./process">
+                <mat-icon class="icon-display">sync</mat-icon>
+                Procesos</a>
+            <a mat-list-item routerLinkActive="active" routerLink="./accountant">
+                <mat-icon class="icon-display">check_circle_outline</mat-icon>
+                Responsables</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

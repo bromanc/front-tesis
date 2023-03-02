@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "@auth0/auth0-angular";
 import {Router} from "@angular/router";
+import {map} from "rxjs";
+import * as _ from "lodash";
 
 @Component({
     selector: 'app-login',
@@ -16,16 +18,22 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.auth.isAuthenticated$.subscribe(x => {
-            if (x) {
-                this.router.navigate(['admin'])
-            }
-        })
+        this.auth.idTokenClaims$.pipe(
+            map((tokenData) => {
+                const role: string[] = _.get(tokenData, "tesis-api/roles", [])
+                switch (role[0]) {
+                    case "admin":
+                        this.router.navigate(['admin']).then();
+                        break;
+                    case "student":
+                        this.router.navigate(['student']).then();
+                        break;
+                }
+            })
+        ).subscribe()
     }
 
     loginWithRedirect(): void {
-        this.auth.loginWithRedirect({
-            appState: {target: '/admin/student'}
-        });
+        this.auth.loginWithRedirect();
     }
 }

@@ -1,0 +1,24 @@
+.container {
+    height: 700px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-dialog-title {
+    margin-top: 16px;
+    text-align: center;
+}
+
+table {
+    padding-inline: 40px;
+    width: 100%;
+    align-self: flex-end;
+}

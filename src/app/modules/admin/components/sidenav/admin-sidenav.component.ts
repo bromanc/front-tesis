@@ -3,20 +3,19 @@ import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
     selector: 'app-sidenav',
-    templateUrl: './sidenav.component.html',
-    styleUrls: ['./sidenav.component.css']
+    templateUrl: './admin-sidenav.component.html',
+    styleUrls: ['./admin-sidenav.component.css']
 })
-export class SidenavComponent implements OnInit {
+export class AdminSidenavComponent implements OnInit {
 
     constructor(public auth: AuthService) {
     }
 
     ngOnInit(): void {
-        this.auth.user$.subscribe(x => console.log(x))
+        this.auth.user$.subscribe();
     }
 
     logout() {
         this.auth.logout();
     }
-
 }

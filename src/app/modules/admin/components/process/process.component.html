@@ -1,1 +1,56 @@
-<p>process works!</p>
+<div class="container">
+    <div class="header">
+        <form class="input-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Buscar</mat-label>
+                <input type="tel" matInput>
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </form>
+
+        <button mat-raised-button color="primary" (click)="openCreateProcessDialog()">
+            <mat-icon>add</mat-icon>
+            Agregar proceso
+        </button>
+    </div>
+
+    <div class="content">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nombre</th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Version Column -->
+            <ng-container matColumnDef="version">
+                <th mat-header-cell *matHeaderCellDef> Version</th>
+                <td mat-cell *matCellDef="let element"> {{element.version}} </td>
+            </ng-container>
+
+            <!-- Action Menu Column -->
+            <ng-container matColumnDef="actions" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label="">
+                        <mat-icon>more_horiz</mat-icon>
+                    </button>
+                    <mat-menu #appMenu="matMenu">
+                        <button mat-menu-item (click)="openCreateSubprocessDialog(element.id)">Subprocesos</button>
+                        <button mat-menu-item (click)="editEntry(element)">Editar</button>
+                        <button mat-menu-item (click)="deleteEntry(element.id)">Eliminar</button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <div *ngIf="!isLoading"
+             style="display: flex; justify-content: center; align-items: center; background: white;">
+            <mat-progress-spinner color="primary" mode="indeterminate">
+            </mat-progress-spinner>
+        </div>
+    </div>
+</div>

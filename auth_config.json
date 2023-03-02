@@ -1,9 +1,7 @@
 {
-  "domain": "tesis-epn.us.auth0.com",
+  "domain": "https://tesis-epn.us.auth0.com",
   "clientId": "bWNEIYEdQrGYljFyHm9anUBSVaclIEIU",
   "audience": "https://processmanagementapi.com",
   "apiUri": "https://localhost:3000",
-  "appUri": "https://example.site:4200/",
-  "redirectUri": "https://example.site:4200/accountant",
-  "errorPath": "/error"
+  "redirectUri": "https://example.site:4200/admin/student"
 }

@@ -2,14 +2,14 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {ApiService} from "../../../../../core/services/api/api.service";
+import * as _ from "lodash";
 
 @Component({
-    selector: 'app-form-dialog',
-    templateUrl: './form-dialog.component.html',
-    styleUrls: ['./form-dialog.component.css']
+    selector: 'app-create-process-accountant-form-dialog',
+    templateUrl: './create-process-form-dialog.component.html',
+    styleUrls: ['./create-process-form-dialog.component.css']
 })
-export class FormDialogComponent implements OnInit {
-    accountantForm: FormGroup;
+export class CreateProcessFormDialogComponent implements OnInit {
 
     constructor(
         private builder: FormBuilder,
@@ -19,34 +19,32 @@ export class FormDialogComponent implements OnInit {
     ) {
     }
 
+    processForm: FormGroup;
+
     ngOnInit(): void {
-        this.accountantForm = this.builder.group({
+        this.processForm = this.builder.group({
             id: this.builder.control({disabled: true}),
             name: this.builder.control("", [Validators.required]),
-            phone: this.builder.control("", [Validators.required]),
-            email: this.builder.control("", [Validators.required, Validators.email]),
-            address: this.builder.control("", [Validators.required])
+            version: this.builder.control("", [Validators.required])
         })
 
         if (this.data.id != '' && this.data.id != null) {
-            this.accountantForm.setValue({
+            this.processForm.setValue({
                 id: this.data.id,
                 name: this.data.name,
-                phone: this.data.phone,
-                email: this.data.email,
-                address: this.data.address,
+                version: this.data.version,
             });
         }
     }
 
     save() {
-        if (this.accountantForm.valid) {
-            const editId = this.accountantForm.getRawValue().id;
+        if (this.processForm.valid) {
+            const editId: string = _.get(this.data, "id", "");
             if (editId != "" && editId != null) {
-                this.api.updateAccountant$(editId, this.accountantForm.value)
+                this.api.updateProcess$(editId, this.processForm.value)
                     .subscribe(resp => console.log(resp))
             } else {
-                this.api.createAccountant$(this.accountantForm.value)
+                this.api.createProcess$(this.processForm.value)
                     .subscribe(resp => console.log(resp))
             }
             this.closeDialog()
@@ -56,4 +54,5 @@ export class FormDialogComponent implements OnInit {
     closeDialog() {
         this.dialog.closeAll();
     }
+
 }

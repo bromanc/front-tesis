@@ -1,0 +1,50 @@
+.container {
+    padding-block: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .header {
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 40px;
+    padding-block: 15px;
+}
+
+.header .input-form {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    column-gap: 30px;
+    row-gap: 15px;
+    margin-inline-end: 30px;
+    margin-inline-start: 10px;
+}
+
+.content {
+    margin-inline: 40px;
+}
+
+table {
+    margin-top: 30px;
+    padding-inline: 40px;
+    width: 100%;
+    align-self: flex-end;
+}
+
+mat-row {
+    font-size: 20px;
+}
+
+mat-progress-spinner {
+    position: relative;
+    margin: 45px;
+}
+
+mat-card {
+    margin-left: 40px;
+    width: 100%;
+}

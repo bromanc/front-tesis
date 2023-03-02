@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Carrera</h2>
+<form [formGroup]="degreeForm" (ngSubmit)="save()">
+    <mat-dialog-content class="mat-typography">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" placeholder="Nombre">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Procesos</mat-label>
+            <mat-select multiple formControlName= "processes" [formControl]="selected" [errorStateMatcher] = "matcher">
+                <mat-option *ngFor="let process of processes" [value]="process.id">{{process.name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="selected.hasError('required')">Debe elegir una opción</mat-error>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="true">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+</form>

@@ -30,5 +30,6 @@ mat-row {
     font-size:20px;
 }
 mat-progress-spinner {
+    position: relative;
     margin: 45px;
 }

@@ -1,0 +1,34 @@
+.container {
+    padding-block: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.container .header {
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+    padding-block: 50px;
+}
+
+.header .input-form {
+    padding-inline: 30px;
+}
+
+.content {
+    margin-inline: 40px;
+}
+table {
+    padding-inline: 40px;
+    width: 100%;
+    align-self: flex-end;
+}
+mat-row {
+    font-size:20px;
+}
+mat-progress-spinner {
+    margin: 45px;
+}
