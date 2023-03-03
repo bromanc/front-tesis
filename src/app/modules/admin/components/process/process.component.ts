@@ -87,7 +87,7 @@ export class ProcessComponent implements OnInit {
     }
 }
 
-class ProcessDataSource extends DataSource<IProcess> {
+export class ProcessDataSource extends DataSource<IProcess> {
     private _dataStream = new ReplaySubject<IProcess[]>();
 
     constructor(initialData: IProcess[]) {
