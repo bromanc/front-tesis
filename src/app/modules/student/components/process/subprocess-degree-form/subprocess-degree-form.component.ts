@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ApiService} from "../../../../../core/services/api/api.service";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
@@ -14,7 +13,6 @@ export class SubprocessDegreeFormComponent implements OnInit {
 
     constructor(
         private builder: FormBuilder,
-        private api: ApiService,
         @Inject(MAT_DIALOG_DATA) public data: any,
     ) {
     }
